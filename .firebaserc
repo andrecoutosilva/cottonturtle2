@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "prod": "cottonturtle2",
+    "storage": "cotton-storage"
+  }
+}
