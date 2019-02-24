@@ -20,13 +20,27 @@ cottonTurtleApp.controller('MainController', function MainController($scope, $ht
     (function initialize() {
         
         var promises = [];
-    
-        promises.push($http.get("images/2017/quilts/quilts.json"));
-        promises.push($http.get("images/2017oi/quilts/quilts.json"));
-        promises.push($http.get("images/2018pv/quilts/quilts.json"));
         
-        $q.all(promises).then(function (quiltJsons) {
+        // promises.push(storageRef.child("images/2017/quilts/quilts.json").getDownloadURL());
+        // promises.push(storageRef.child("images/2017oi/quilts/quilts.json").getDownloadURL());
+        // promises.push(storageRef.child("images/2018pv/quilts/quilts.json").getDownloadURL());
+
+        promises.push($http.get("images/2017/quilts.json"));
+        promises.push($http.get("images/2017oi/quilts.json"));
+        promises.push($http.get("images/2018pv/quilts.json"));
+        
+        // $q.all(promises).then(function (downloadUrls) {
             
+            // TODO: Replace files with storage. 
+            // CORS problem.
+            
+            // downloadUrls.forEach(quiltJsonUrl => {
+                //     $http.get(quiltJsonUrl).then(function (quiltJson) {
+                    
+                    // });
+                    // });
+                    
+        $q.all(promises).then(function (quiltJsons) {
             quiltJsons.forEach(quiltJson => {
             
                 var quilts = quiltJson.data;
@@ -42,6 +56,7 @@ cottonTurtleApp.controller('MainController', function MainController($scope, $ht
                     })
                 });
             });
+        // });
 
             $scope.quilts.length = 0;
 
