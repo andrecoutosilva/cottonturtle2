@@ -4,8 +4,9 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html ng-app="cottonTurtleApp">
+<html>
 	<head>
+		<base href="/">
 		<title>Cotton Turtle by CottonArt</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,6 +31,8 @@
 		<!-- UI JS file -->
 		<script src="assets/thirdparty/photoswipe/photoswipe-ui-default.min.js"></script> 
 		<script src="assets/thirdparty/angular/angular.min.js"></script> 
+		<script src="assets/thirdparty/angular-ui-router/angular-ui-router.min.js"></script> 
+		
 		<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
 		<!-- AngularFire -->
 		<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
@@ -47,9 +50,16 @@
 		</script>
 		<!-- Custom Js Files -->
 		<script src="assets/js/utils/utils.js"></script> 
-		<script src="assets/js/controllers/main.controller.js"></script> 
+		<script src="app/app.module.js"></script> 
+		<script src="app/app.config.js"></script> 
+		<script src="app/main/main.module.js"></script> 
+		<script src="app/archive/archive.module.js"></script> 
+		<script src="app/main/main.component.js"></script> 
+		<script src="app/archive/archive.component.js"></script> 
+		<script src="app/directives/image-on-load.directive.js"></script> 
 	</head>
-	<body ng-controller="MainController">
+	<body  ng-app="cottonTurtleApp">
+		
 		<!-- Header -->
 		<div id="header">
 			<div class="top">
@@ -58,19 +68,20 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Bem-vindos</span></a></li>
-						<li><a href="#" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Portefólio</span></a>
+						<li><a href="#top" id="top-link" class="skel-layers-ignoreHref" target="_self"><span class="icon fa-home">Bem-vindos</span></a></li>
+						<li><a href="#" id="portfolio-link" class="skel-layers-ignoreHref" target="_self"><span class="icon fa-th">Portefólio</span></a>
 							<ul class="sub-menu">
-								<li><a href="#colchas" id="colchas-link" class="skel-layers-ignoreHref submenu"><span>Colchas</span></a></li>
-								<li><a href="#cortinados" id="cortinados-link" class="skel-layers-ignoreHref submenu"><span>Cortinados</span></a></li>
-								<li><a href="#almofadas" id="almofadas-link" class="skel-layers-ignoreHref submenu"><span>Almodafas</span></a></li>
-								<li><a href="#hotelaria" id="hotelaria-link" class="skel-layers-ignoreHref submenu"><span>Hotelaria & Casa</span></a></li>
+								<li><a href="#colchas" id="colchas-link" class="skel-layers-ignoreHref submenu" target="_self"><span>Colchas</span></a></li>
+								<!-- <li><a href="#cortinados" id="cortinados-link" class="skel-layers-ignoreHref submenu" target="_self"><span>Cortinados</span></a></li>
+								<li><a href="#almofadas" id="almofadas-link" class="skel-layers-ignoreHref submenu" target="_self"><span>Almodafas</span></a></li>
+								<li><a href="#hotelaria" id="hotelaria-link" class="skel-layers-ignoreHref submenu" target="_self"><span>Hotelaria & Casa</span></a></li> -->
 							</ul>
 						</li>
-						<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Quem Somos</span></a></li>
-						<li><a href="#catalogues" id="catalogues-link" class="skel-layers-ignoreHref"><span class="icon fa-book">Catálogos</span></a></li>
-						<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contacto</span></a></li>
-						<li><a href="#location" id="location-link" class="skel-layers-ignoreHref"><span class="icon fa-map-marker">Onde Estamos</span></a></li>
+						<li><a href="#about" id="about-link" class="skel-layers-ignoreHref" target="_self"><span class="icon fa-user">Quem Somos</span></a></li>
+						<li><a href="#catalogues" id="catalogues-link" class="skel-layers-ignoreHref" target="_self"><span class="icon fa-book">Catálogos</span></a></li>
+						<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref" target="_self"><span class="icon fa-envelope">Contacto</span></a></li>
+						<li><a href="#location" id="location-link" class="skel-layers-ignoreHref" target="_self"><span class="icon fa-map-marker">Onde Estamos</span></a></li>
+						<!-- <li><a href="/archive" id="archive-link" class="skel-layers-ignoreHref" data-target="#archive"><span class="icon fa-th">Arquivo</span></a></li> -->
 					</ul>
 				</nav>
 			</div>
@@ -81,181 +92,15 @@
 				</ul>
 			</div>
 		</div>
-		<!-- Main -->
-		<div id="main">
-			<!-- Intro -->
-			<section id="top" class="one dark cover">
-				<div class="container">
-					<header>
-						<h2 class="alt">Bem-vindos à página da <strong>Cotton-Turtle</strong>,<br/> introduza aqui a 
-							sua mensagem de apresentação.</h2>
-							<p>Ligula scelerisque justo sem accumsan diam quis<br />
-								vitae natoque dictum sollicitudin elementum.</p>
-					</header>
-					<footer>
-						<a href="#portfolio" class="button scrolly">Continuar</a>
-					</footer>
-				</div>
-			</section>
-			
-			<!-- Portfolio -->
-			<section id="portfolio" class="two portfolio-gallery">
-				<div class="container">
-					<header><h2>Portefólio</h2></header>
-						<section id="colchas">
-							<header><h3>Colchas</h3></header>
-								<div class="row">
-									<div ng-repeat="twoQuilt in quilts" class="4u 12u$(mobile)">
-										<article ng-repeat="quilt in twoQuilt" class="item" data-pswp-uid="{{quilt.index}}">
-											<a class="image fit" data-size="{{quilt.datasize}}">								
-												<img ng-click="thumbnailClick(quilt.index)"
-													firebase-src="{{quilt.thumb}}" 
-													alt="{{quilt.name}}"
-													data-size="{{quilt.datasize}}"/>
-											</a>
-											<header><h3>{{quilt.name}}</h3></header>
-										</article>
-									</div>
-								</div>							
-								<!-- Root element of PhotoSwipe. Must have class pswp. -->
-								<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-								<!-- Background of PhotoSwipe. 
-									It's a separate element as animating opacity is faster than rgba(). -->
-								<div class="pswp__bg"></div>
-								<!-- Slides wrapper with overflow:hidden. -->
-								<div class="pswp__scroll-wrap">
-								<!-- Container that holds slides. 
-									PhotoSwipe keeps only 3 of them in the DOM to save memory.
-									Don't modify these 3 pswp__item elements, data is added later on. -->
-								<div class="pswp__container">
-									<div class="pswp__item"></div>
-									<div class="pswp__item"></div>
-									<div class="pswp__item"></div>
-								</div>
-								<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-								<div class="pswp__ui pswp__ui--hidden">
-									<div class="pswp__top-bar">
-										<!--  Controls are self-explanatory. Order can be changed. -->
-										<div class="pswp__counter"></div>
-										<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-										<button class="pswp__button pswp__button--share" title="Share"></button>
-										<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-										<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-										<!-- element will get class pswp__preloader--active when preloader is running -->
-										<div class="pswp__preloader">
-											<div class="pswp__preloader__icn">
-											<div class="pswp__preloader__cut">
-												<div class="pswp__preloader__donut"></div>
-											</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-										<div class="pswp__share-tooltip"></div> 
-									</div>
-
-									<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-									</button>
-
-									<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-									</button>
-
-									<div class="pswp__caption">
-										<div class="pswp__caption__center"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section id="cortinados">
-						<header><h3>Cortinados</h3></header>
-					</section>
-					<section id="almofadas">
-						<header><h3>Almofadas Decorativas</h3></header>
-					</section>
-					<section id="Hotelaria">
-						<header><h3>Hotelaria & Casa</h3></header>
-					</section>
-				</div>
-			</section>
-			<!-- Quem Somos -->
-			<section id="about" class="three">
-				<div class="container">
-					<header><h2>Quem Somos</h2></header>
-						<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
-							<p>A Cotton Turtle é o culminar da experiência de vinte anos no fabrico e comercialização de têxteis lar, dando início a um novo projeto e a uma nova visão dos têxteis para o lar. </p><p>Apresentamos no mercado esta marca que dá aos nossos clientes a satisfação de possuir produtos inovadores e de alta qualidade, a um custo reduzido e fácil manutenção.</p><p>Todas as etapas são supervisionadas por profissionais experientes; desde o processo criativo das coleções, passando pela escolha criteriosa e rigorosa dos nossos tecidos, até à confecção e acabamento. Queremos marcar a diferença pela qualidade e o bom gosto.</p><p>Com uma forte aposta nos nossos fornecedores e clientes, com a colaboração, dedicação e respeito, queremos convosco marcar a diferença. Foi com muito trabalho, dedicação e orgulho que a Cotton Turtle abre as suas portas com um novo olhar sobre como fabricar têxteis para o lar, é esse o nosso presente, pensando sempre na inovação dos nossos produtos para o futuro. 
-							</p><p>É este o nosso lema.
-							</p><p>by Cotton ART.</p>
-						</div>
-					</section>
-
-					<section id="catalogues" class="four">
-						<div class="container">
-							<header>
-								<h2>Catálogos</h2>
-								<h3>2017</h3>
-								<p><a target="_blank" href="./files/catalogo-cottonart-oi2017.pdf" class="list-group-item"><span class="label label-success">OUTONO/INVERNO </span><span class="label-espaco">PDF (12 MB) </span><span class="label label-default">Novo!</span></a></p>
-								<p><a target="_blank" href="./files/catalogo-cottonart-pv2017.pdf" class="list-group-item"><span class="label label-success">PRIMAVERA/VERÃO </span><span class="label-espaco">PDF (6 MB) </span></a></p>
-								<h3>2016</h3>
-								<p><a target="_blank" href="./files/catalogo-cottonart-oi2016.pdf" class="list-group-item"><span class="label">OUTONO/INVERNO </span><span class="label-espaco">PDF (17 MB) </span></a></p>
-								<p><a target="_blank" href="./files/catalogo-cottonart-pv2016.pdf" class="list-group-item"><span class="label">PRIMAVERA/VERÃO </span><span class="label-espaco">PDF (10 MB) </span></a></p>
-								<h3>2015</h3>
-								<p><a target="_blank" href="./files/catalogo-cottonart-oi2015.pdf" class="list-group-item"><span class="label">OUTONO/INVERNO </span><span class="label-espaco">PDF (20 MB) </span></a></p>
-								<p><a target="_blank" href="./files/catalogo-cottonart-pv2015.pdf" class="list-group-item"><span class="label">PRIMAVERA/VERÃO </span><span class="label-espaco">PDF (5 MB) </span></a></p>
-								<h3>2014</h3>
-								<p><a target="_blank" href="./files/catalogo-cottonart-oi2014-hd.pdf" class="list-group-item"><span class="label">OUTONO/INVERNO </span><span class="label-espaco">PDF (57 MB) </span></a></p>
-								<p><a target="_blank" href="./files/catalogo-cottonart-pv2014.pdf" class="list-group-item"><span class="label">PRIMAVERA/VERÃO </span><span class="label-espaco">PDF (13 MB)</span></a></p>
-							</header>
-						</div>
-					</section>
-					<!-- Contactos -->
-					<section id="contact" class="five">
-						<div class="container">
-
-							<header>
-								<h2>Contacto</h2>
-							</header>
-							<p>Telefone: +351 253 131 939</p>
-							<p>E-Mail: <a href="mailto:cottonart.textil@gmail.com?Subject=Informa%C3%A7%C3%B5es">cottonart.textil@gmail.com</a></p>
-							<p>Morada: Rua do Séquito 4805-034 Guimarães</p>
-							<form method="post" action="https://formspree.io/andrecoutosilva@gmail.com">
-								<div class="row">
-									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Nome" /></div>
-									<div class="6u$ 12u$(mobile)"><input type="text" name="_replyto" placeholder="Email" /></div>
-									<div class="12u$">
-										<textarea name="message" placeholder="Mensagem"></textarea>
-									</div>
-									<div class="12u$">
-										<input type="submit" value="Enviar mensagem" />
-									</div>
-								</div>
-							</form>
-						</div>
-					</section>
-					<section id="location" class="six">
-						<div class="container">
-							<header>
-								<h2>Onde estamos</h2>
-							</header>
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.4295484806726!2d-8.354318684572226!3d41.45159797925836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3f62a821258dbe44!2sCotton+Turtle!5e0!3m2!1spt-PT!2sus!4v1500741914013" width="800" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-						</diV>
-					</section>
-			</div>
-			<!-- Footer -->
-			<div id="footer">
-				<!-- Copyright -->
-				<ul class="copyright">
-					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a> customized by <a href="https://www.linkedin.com/in/andrecoutosilva/">Andre Silva</a></li>
-				</ul>
-			</div>
-			<!-- Scripts -->
-			<script src="assets/thirdparty/jquery/jquery.min.js"></script>
-			<script src="assets/thirdparty/jquery/jquery.scrolly.min.js"></script>
-			<script src="assets/thirdparty/jquery/jquery.scrollzer.min.js"></script>
-			<script src="assets/thirdparty/html5up/skel.min.js"></script>
-			<script src="assets/thirdparty/html5up/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/thirdparty/html5up/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/thirdparty/html5up/main.js"></script>
+		<ui-view></ui-view>	
+		
+		<!-- Scripts -->
+		<script src="assets/thirdparty/jquery/jquery.min.js"></script>
+		<script src="assets/thirdparty/jquery/jquery.scrolly.min.js"></script>
+		<script src="assets/thirdparty/jquery/jquery.scrollzer.min.js"></script>
+		<script src="assets/thirdparty/html5up/skel.min.js"></script>
+		<script src="assets/thirdparty/html5up/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/thirdparty/html5up/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/thirdparty/html5up/main.js"></script>
 	</body>
 </html>

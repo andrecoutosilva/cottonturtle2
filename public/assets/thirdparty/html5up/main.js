@@ -72,7 +72,8 @@
 							{
 								if ($('.sub-menu').css('height') === "0px")
 								{
-									$('.sub-menu').css('height', "170px");
+									// $('.sub-menu').css('height', "170px");
+									$('.sub-menu').css('height', "50px");
 								} else {
 									$('.sub-menu').css('height', "0px");
 								}

@@ -1,0 +1,205 @@
+<div>
+		<!-- Main -->
+		<div id="main">
+			<!-- Intro -->
+			<section id="top" class="one dark cover">
+				<div class="container">
+					<header>
+						<h2 class="alt">Bem-vindos à página da <strong>Cotton-Turtle</strong>.</h2>
+							<p>Queremos marcar a diferença pela qualidade e o bom gosto.</p>
+					</header>
+					<!-- <footer>
+						<a href="#portfolio" class="button scrolly" target="_self">Continuar</a>
+					</footer> -->
+				</div>
+			</section>
+			
+			<!-- Portfolio -->
+			<section id="portfolio" class="two portfolio-gallery">
+				<div class="container">
+					<header><h2>Portefólio</h2></header>
+						<section id="colchas">
+							<header><h3>Colchas</h3></header>
+								<div class="row">
+									<div ng-repeat="twoQuilt in quilts" class="4u 12u$(mobile)">
+										<article ng-repeat="quilt in twoQuilt" class="item" data-pswp-uid="{{quilt.index}}">
+											<div class="timeline-item" ng-if="quilt.isLoading">
+												<div class="animated-background">
+													<div class="background-masker header-top"></div>
+													<div class="background-masker header-left"></div>
+													<div class="background-masker header-right"></div>
+													<div class="background-masker header-bottom"></div>
+													<div class="background-masker subheader-left"></div>
+													<div class="background-masker subheader-right"></div>
+													<div class="background-masker subheader-bottom"></div>
+													<div class="background-masker content-top"></div>
+													<div class="background-masker content-first-end"></div>
+													<div class="background-masker content-second-line"></div>
+													<div class="background-masker content-second-end"></div>
+													<div class="background-masker content-third-line"></div>
+													<div class="background-masker content-third-end"></div>
+												</div>
+											</div>
+											<a class="image fit" data-size="{{quilt.datasize}}">								
+												<img class="quilt-thumb" 
+													ng-click="thumbnailClick(quilt.index)"
+													firebase-src="{{quilt.thumb}}" 
+													alt="{{quilt.name}}"
+													data-size="{{quilt.datasize}}"
+													ng-hide="quilt.isLoading"
+													image-on-load="hideLoading(quilt)"/>
+											</a>
+											<header><h3>{{quilt.name}}</h3></header>
+										</article>
+									</div>
+								</div>							
+								<!-- Root element of PhotoSwipe. Must have class pswp. -->
+								<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+								<!-- Background of PhotoSwipe. 
+									It's a separate element as animating opacity is faster than rgba(). -->
+								<div class="pswp__bg"></div>
+								<!-- Slides wrapper with overflow:hidden. -->
+								<div class="pswp__scroll-wrap">
+								<!-- Container that holds slides. 
+									PhotoSwipe keeps only 3 of them in the DOM to save memory.
+									Don't modify these 3 pswp__item elements, data is added later on. -->
+								<div class="pswp__container">
+									<div class="pswp__item"></div>
+									<div class="pswp__item"></div>
+									<div class="pswp__item"></div>
+								</div>
+								<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+								<div class="pswp__ui pswp__ui--hidden">
+									<div class="pswp__top-bar">
+										<!--  Controls are self-explanatory. Order can be changed. -->
+										<div class="pswp__counter"></div>
+										<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+										<button class="pswp__button pswp__button--share" title="Share"></button>
+										<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+										<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+										<!-- element will get class pswp__preloader--active when preloader is running -->
+										<div class="pswp__preloader">
+											<div class="pswp__preloader__icn">
+											<div class="pswp__preloader__cut">
+												<div class="pswp__preloader__donut"></div>
+											</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+										<div class="pswp__share-tooltip"></div> 
+									</div>
+
+									<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+									</button>
+
+									<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+									</button>
+
+									<div class="pswp__caption">
+										<div class="pswp__caption__center"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- <section id="cortinados">
+						<header><h3>Cortinados</h3></header>
+					</section>
+					<section id="almofadas">
+						<header><h3>Almofadas Decorativas</h3></header>
+					</section>
+					<section id="Hotelaria">
+						<header><h3>Hotelaria & Casa</h3></header>
+					</section> -->
+				</div>
+			</section>
+			<!-- Quem Somos -->
+			<section id="about" class="three">
+				<div class="container">
+					<header><h2>Quem Somos</h2></header>
+						<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+							<p>A Cotton Turtle é o culminar da experiência de vinte anos no fabrico e comercialização de têxteis lar, dando início a um novo projeto e a uma nova visão dos têxteis para o lar. </p><p>Apresentamos no mercado esta marca que dá aos nossos clientes a satisfação de possuir produtos inovadores e de alta qualidade, a um custo reduzido e fácil manutenção.</p><p>Todas as etapas são supervisionadas por profissionais experientes; desde o processo criativo das coleções, passando pela escolha criteriosa e rigorosa dos nossos tecidos, até à confecção e acabamento. Queremos marcar a diferença pela qualidade e o bom gosto.</p><p>Com uma forte aposta nos nossos fornecedores e clientes, com a colaboração, dedicação e respeito, queremos convosco marcar a diferença. Foi com muito trabalho, dedicação e orgulho que a Cotton Turtle abre as suas portas com um novo olhar sobre como fabricar têxteis para o lar, é esse o nosso presente, pensando sempre na inovação dos nossos produtos para o futuro. 
+							</p><p>É este o nosso lema.
+							</p><p>by Cotton ART.</p>
+						</div>
+					</section>
+
+					<section id="catalogues" class="four">
+						<div class="container">
+							<header>
+								<h2>Catálogos</h2>
+								<div>
+									<h3>2019</h3>
+									<p><a target="_blank" href="./files/catalogo-cottonart-pv2019.pdf" class="list-group-item"><span class="label label-success">PRIMAVERA/VERÃO </span><span class="label-espaco">PDF (15 MB) </span><span class="label label-default">Novo!</span></a></p>
+								</div>
+								<div>
+									<h3>2018</h3>
+									<!-- <p><a target="_blank" href="./files/catalogo-cottonart-oi2018.pdf" class="list-group-item"><span class="label label-success">OUTONO/INVERNO </span><span class="label-espaco">PDF (12 MB) </span></p> -->
+									<p><a target="_blank" href="./files/catalogo-cottonart-pv2018.pdf" class="list-group-item"><span class="label label-success">PRIMAVERA/VERÃO </span><span class="label-espaco">PDF (19 MB) </span></a></p>
+								</div>
+								<div>
+									<h3>2017</h3>
+									<p><a target="_blank" href="./files/catalogo-cottonart-oi2017.pdf" class="list-group-item"><span class="label label-success">OUTONO/INVERNO </span><span class="label-espaco">PDF (12 MB) </span></p>
+									<p><a target="_blank" href="./files/catalogo-cottonart-pv2017.pdf" class="list-group-item"><span class="label label-success">PRIMAVERA/VERÃO </span><span class="label-espaco">PDF (6 MB) </span></a></p>
+								</div>
+								<div>
+									<h3>2016</h3>
+									<p><a target="_blank" href="./files/catalogo-cottonart-oi2016.pdf" class="list-group-item"><span class="label">OUTONO/INVERNO </span><span class="label-espaco">PDF (17 MB) </span></a></p>
+									<p><a target="_blank" href="./files/catalogo-cottonart-pv2016.pdf" class="list-group-item"><span class="label">PRIMAVERA/VERÃO </span><span class="label-espaco">PDF (10 MB) </span></a></p>
+								</div>
+								<div>
+									<h3>2015</h3>
+									<p><a target="_blank" href="./files/catalogo-cottonart-oi2015.pdf" class="list-group-item"><span class="label">OUTONO/INVERNO </span><span class="label-espaco">PDF (20 MB) </span></a></p>
+									<p><a target="_blank" href="./files/catalogo-cottonart-pv2015.pdf" class="list-group-item"><span class="label">PRIMAVERA/VERÃO </span><span class="label-espaco">PDF (5 MB) </span></a></p>
+								</div>
+								<div>
+									<h3>2014</h3>
+									<p><a target="_blank" href="./files/catalogo-cottonart-oi2014-hd.pdf" class="list-group-item"><span class="label">OUTONO/INVERNO </span><span class="label-espaco">PDF (57 MB) </span></a></p>
+									<p><a target="_blank" href="./files/catalogo-cottonart-pv2014.pdf" class="list-group-item"><span class="label">PRIMAVERA/VERÃO </span><span class="label-espaco">PDF (13 MB)</span></a></p>
+								</div>
+							</header>
+						</div>
+					</section>
+					<!-- Contactos -->
+					<section id="contact" class="five">
+						<div class="container">
+
+							<header>
+								<h2>Contacto</h2>
+							</header>
+							<p>Telefone: +351 253 131 939</p>
+							<p>E-Mail: <a href="mailto:cottonart.textil@gmail.com?Subject=Informa%C3%A7%C3%B5es">cottonart.textil@gmail.com</a></p>
+							<p>Morada: Rua do Séquito 4805-034 Guimarães</p>
+							<form method="post" action="https://formspree.io/cottonart.textil@gmail.com">
+								<div class="row">
+									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Nome" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="_replyto" placeholder="Email" /></div>
+									<div class="12u$">
+										<textarea name="message" placeholder="Mensagem"></textarea>
+									</div>
+									<div class="12u$">
+										<input type="submit" value="Enviar mensagem" />
+									</div>
+								</div>
+							</form>
+						</div>
+					</section>
+					<section id="location" class="six">
+						<div class="container">
+							<header>
+								<h2>Onde estamos</h2>
+							</header>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.4295484806726!2d-8.354318684572226!3d41.45159797925836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3f62a821258dbe44!2sCotton+Turtle!5e0!3m2!1spt-PT!2sus!4v1500741914013" width="800" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+						</diV>
+					</section>
+		</div>
+			<!-- Footer -->
+			<div id="footer">
+				<!-- Copyright -->
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a> customized by <a href="https://www.linkedin.com/in/andrecoutosilva/">Andre Silva</a></li>
+				</ul>
+			</div>
+</div>
