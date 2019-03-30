@@ -7,10 +7,7 @@ a.image {
 }
 
 img.quilt-thumb {
-    /* height: 221px;
-    width: 300px; */
     height: 196px;
-    width: 293px;
     object-fit: cover;
 }
 
@@ -22,7 +19,6 @@ img.quilt-thumb {
     padding: 12px;
 
     margin: 0 auto;
-    width: 293px;
     height: 196px;
 }
 @keyframes placeHolderShimmer{
